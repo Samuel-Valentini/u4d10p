@@ -36,6 +36,11 @@ public class Application {
         System.out.println(ricercaPerNumeroDiGiocatori(2));
         System.out.println(ricercaPerNumeroDiGiocatori(7));
 
+        rimozionePerId(9);
+        rimozionePerId(3);
+
+        getCollection().forEach(System.out::println);
+
 
     }
 }

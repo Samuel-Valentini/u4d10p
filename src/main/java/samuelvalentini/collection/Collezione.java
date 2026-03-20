@@ -84,6 +84,18 @@ public abstract class Collezione {
         return collection.stream().filter(game -> game.tipo == Tipo.BOARD_GAME).map(game -> (GiocoDaTavolo) game).filter(game -> game.getNumeroDiGiocatoriMinimo() <= numeroGiocatori && game.getNumeroDiGiocatoriMassimo() >= numeroGiocatori).toList();
     }
 
+    //rimozione tramite id
+    public static void rimozionePerId(long idGioco) {
+        for (int i = 0; i < collection.size(); i++) {
+            if (collection.get(i).idGioco == idGioco) {
+                collection.remove(i);
+                break;
+            }
+        }
+        System.out.println("Id non trovato");
+
+    }
+
     public abstract void addToCollection();
 
     public long getIdGioco() {
