@@ -5,8 +5,7 @@ import samuelvalentini.collection.videogame.Videogioco;
 import samuelvalentini.collection.videogame.enumeration.Genere;
 import samuelvalentini.collection.videogame.enumeration.Piattaforma;
 
-import static samuelvalentini.collection.Collezione.getCollection;
-import static samuelvalentini.collection.Collezione.ricercaPerId;
+import static samuelvalentini.collection.Collezione.*;
 
 public class Application {
 
@@ -27,6 +26,11 @@ public class Application {
         System.out.println("test ricerca:");
         System.out.println(ricercaPerId(2));
         System.out.println(ricercaPerId(452));
+
+        System.out.println("test ricerca per prezzo inferiore a 35");
+        ricercaPerPrezzoInferiore(35).forEach(System.out::println);
+        System.out.println("verifica lista originale");
+        getCollection().forEach(System.out::println);
 
 
     }
