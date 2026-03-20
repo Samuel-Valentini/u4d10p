@@ -95,7 +95,6 @@ public abstract class Collezione {
                 break;
             }
         }
-        System.out.println("Id non trovato");
 
     }
 

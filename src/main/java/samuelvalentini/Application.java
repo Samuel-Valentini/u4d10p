@@ -319,6 +319,8 @@ public class Application {
                 }
 
                 case 8: {
+                    stampaStatistiche();
+                    break;
                 }
 
             }
