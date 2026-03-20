@@ -100,17 +100,25 @@ public abstract class Collezione {
 
     public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione, double prezzo) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
+        if (item == null) {
+            System.out.println("Id non trovato");
+            return;
+        }
         item.setTitolo(titolo);
         item.setAnnoPubblicazione(annoPubblicazione);
         item.setPrezzo(prezzo);
+        System.out.println("Aggiornato");
     }
 
     public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
+        if (item == null) {
+            System.out.println("Id non trovato");
+            return;
+        }
         item.setTitolo(titolo);
         item.setAnnoPubblicazione(annoPubblicazione);
+        System.out.println("Aggiornato");
 
     }
 
@@ -138,20 +146,31 @@ public abstract class Collezione {
 
     public static void aggiornaElementoPerId(long idGioco, int annoPubblicazione) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
+        if (item == null) {
+            System.out.println("Id non trovato");
+            return;
+        }
         item.setAnnoPubblicazione(annoPubblicazione);
+        System.out.println("Aggiornato");
     }
 
     public static void aggiornaElementoPerId(long idGioco, double prezzo) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
+        if (item == null) {
+            System.out.println("Id non trovato");
+            return;
+        }
         item.setPrezzo(prezzo);
+        System.out.println("Aggiornato");
     }
 
 
     public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione, double prezzo, int durataMediaPartita) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
+        if (item == null) {
+            System.out.println("Id non trovato");
+            return;
+        }
         item.setTitolo(titolo);
         item.setAnnoPubblicazione(annoPubblicazione);
         item.setPrezzo(prezzo);
@@ -159,11 +178,16 @@ public abstract class Collezione {
         if (item instanceof GiocoDaTavolo gioco) {
             gioco.setDurataMediaPartita(durataMediaPartita);
         }
+
+        System.out.println("Aggiornato");
     }
 
     public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione, double prezzo, double durataDiGioco) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
+        if (item == null) {
+            System.out.println("Id non trovato");
+            return;
+        }
         item.setTitolo(titolo);
         item.setAnnoPubblicazione(annoPubblicazione);
         item.setPrezzo(prezzo);
@@ -171,11 +195,16 @@ public abstract class Collezione {
         if (item instanceof Videogioco gioco) {
             gioco.setDurataDiGioco(durataDiGioco);
         }
+
+        System.out.println("Aggiornato");
     }
 
     public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione, double prezzo, double durataDiGioco, Genere genere) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
+        if (item == null) {
+            System.out.println("Id non trovato");
+            return;
+        }
         item.setTitolo(titolo);
         item.setAnnoPubblicazione(annoPubblicazione);
         item.setPrezzo(prezzo);
@@ -184,15 +213,21 @@ public abstract class Collezione {
             gioco.setDurataDiGioco(durataDiGioco);
             gioco.setGenere(genere);
         }
+
+        System.out.println("Aggiornato");
     }
 
     public static void aggiornaElementoPerId(long idGioco, Genere genere) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
+        if (item == null) {
+            System.out.println("Id non trovato");
+            return;
+        }
 
         if (item instanceof Videogioco gioco) {
             gioco.setGenere(genere);
         }
+        System.out.println("Aggiornato");
     }
 
     public static void stampaStatistiche() {
