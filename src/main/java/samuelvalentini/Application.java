@@ -301,6 +301,21 @@ public class Application {
                 }
 
                 case 7: {
+                    long id;
+                    while (true) {
+                        try {
+                            System.out.println("Inserisci l'id numerico per aggiornare il titolo dell'elemento");
+                            id = Integer.parseInt(scanner.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Inserimento errato riprova");
+                        }
+                    }
+                    System.out.println("Inserisci il nuovo titolo");
+                    String title = scanner.nextLine();
+                    aggiornaElementoPerId(id, title);
+
+                    break;
                 }
 
                 case 8: {

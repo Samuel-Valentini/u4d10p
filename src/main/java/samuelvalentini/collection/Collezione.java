@@ -117,16 +117,24 @@ public abstract class Collezione {
 
     public static void aggiornaElementoPerId(long idGioco, String titolo) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
-        item.setTitolo(titolo);
+        if (item != null) {
+            item.setTitolo(titolo);
+            System.out.println("Aggiornato");
+        } else {
+            System.out.println("Id non trovato");
+        }
 
     }
 
     public static void aggiornaElementoPerId(long idGioco, String titolo, double prezzo) {
         Collezione item = ricercaPerId(idGioco);
-        assert item != null;
-        item.setTitolo(titolo);
-        item.setPrezzo(prezzo);
+        if (item != null) {
+            item.setTitolo(titolo);
+            item.setPrezzo(prezzo);
+            System.out.println("Aggiornato");
+        } else {
+            System.out.println("Id non trovato");
+        }
     }
 
     public static void aggiornaElementoPerId(long idGioco, int annoPubblicazione) {
