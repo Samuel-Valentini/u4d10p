@@ -192,7 +192,7 @@ public class Application {
 
                                 }
 
-                                System.out.println("Se hai inserito tutto correttamente il gioco viene creato...");
+                                System.out.println("Se hai inserito tutto correttamente il videogioco viene creato, altrimenti comparirà un errore...");
                                 new Videogioco(titolo, anno, prezzo, piattaformaScelta, durata, genereScelto);
                             } catch (RuntimeException e) {
                                 System.out.println();
@@ -220,7 +220,7 @@ public class Application {
                                 int durata = Integer.parseInt(scanner.nextLine());
 
 
-                                System.out.println("Se hai inserito tutto correttamente il  gioco da tavolo viene creato...");
+                                System.out.println("Se hai inserito tutto correttamente il  gioco da tavolo viene creato, altrimenti comparirà un errore...");
                                 new GiocoDaTavolo(titolo, anno, prezzo, numeroMinimo, numeroMassimo, durata);
 
                                 break;
