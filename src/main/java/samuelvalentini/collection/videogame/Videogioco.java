@@ -69,4 +69,13 @@ public class Videogioco extends Collezione {
     public void setGenere(Genere genere) {
         this.genere = genere;
     }
+
+    @Override
+    public String toString() {
+        return this.getTitolo() + ": ( " + super.toString() +
+                "piattaforma=" + piattaforma +
+                ", durataDiGioco=" + durataDiGioco +
+                ", genere=" + genere +
+                " )";
+    }
 }

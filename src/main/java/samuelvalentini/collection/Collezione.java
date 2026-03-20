@@ -93,4 +93,12 @@ public abstract class Collezione {
     public Tipo getTipo() {
         return tipo;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + idGioco +
+                ", tipo=" + tipo +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", prezzo=" + prezzo + " ";
+    }
 }

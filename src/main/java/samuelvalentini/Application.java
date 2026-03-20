@@ -1,5 +1,10 @@
 package samuelvalentini;
 
+import samuelvalentini.collection.boardgame.GiocoDaTavolo;
+import samuelvalentini.collection.videogame.Videogioco;
+import samuelvalentini.collection.videogame.enumeration.Genere;
+import samuelvalentini.collection.videogame.enumeration.Piattaforma;
+
 import static samuelvalentini.collection.Collezione.getCollection;
 
 public class Application {
@@ -7,5 +12,16 @@ public class Application {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         System.out.println(getCollection());
+
+
+        GiocoDaTavolo dama = new GiocoDaTavolo("Dama", -1500, 5.5, 2, 20);
+        Videogioco halo = new Videogioco("Halo: Combat Evolved", 2002, 70, Piattaforma.XBOX, 12, Genere.SHOOTER);
+        GiocoDaTavolo scacchi = new GiocoDaTavolo("Scacchi", 600, 15.0, 2, 60);
+        GiocoDaTavolo risiko = new GiocoDaTavolo("Risiko!", 1957, 34.9, 3, 6, 150);
+        Videogioco dukeNukem3D = new Videogioco("Duke Nukem 3D", 1996, 59.9, Piattaforma.PC, 18, Genere.SHOOTER);
+        Videogioco dragonAgeOrigins = new Videogioco("Dragon Age: Origins", 2009, 69.9, Piattaforma.PC, 18, Genere.ROLE_PLAYING);
+        getCollection().forEach(System.out::println);
+
+
     }
 }
