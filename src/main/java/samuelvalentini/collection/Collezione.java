@@ -91,6 +91,7 @@ public abstract class Collezione {
         for (int i = 0; i < collection.size(); i++) {
             if (collection.get(i).idGioco == idGioco) {
                 collection.remove(i);
+                System.out.println("Elemento rimosso");
                 break;
             }
         }

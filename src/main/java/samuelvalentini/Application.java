@@ -77,6 +77,7 @@ public class Application {
                 case 1: {
                     getCollection().forEach(System.out::println);
                     System.out.println();
+                    break;
 
                 }
 
@@ -193,6 +194,7 @@ public class Application {
                             System.out.println("Se hai inserito tutto correttamente il gioco viene creato...");
                             new Videogioco(titolo, anno, prezzo, piattaformaScelta, durata, genereScelto);
 
+                            break;
                         }
 
 
@@ -214,10 +216,11 @@ public class Application {
                             System.out.println("Se hai inserito tutto correttamente il  gioco da tavolo viene creato...");
                             new GiocoDaTavolo(titolo, anno, prezzo, numeroMinimo, numeroMassimo, durata);
 
+                            break;
 
                         }
                     }
-
+                    break;
                 }
 
                 case 3: {
@@ -237,7 +240,7 @@ public class Application {
                     } else {
                         System.out.println(title);
                     }
-
+                    break;
                 }
 
                 case 4: {
@@ -257,7 +260,7 @@ public class Application {
                     } else {
                         System.out.println(target);
                     }
-
+                    break;
                 }
 
                 case 5: {
@@ -278,10 +281,23 @@ public class Application {
                     } else {
                         System.out.println(targetN);
                     }
-
+                    break;
                 }
 
                 case 6: {
+                    long id;
+                    while (true) {
+                        try {
+                            System.out.println("Inserisci l'id numerico per rimuovere l'elemento");
+                            id = Integer.parseInt(scanner.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Inserimento errato riprova");
+                        }
+                    }
+                    rimozionePerId(id);
+                    break;
+
                 }
 
                 case 7: {
