@@ -261,6 +261,24 @@ public class Application {
                 }
 
                 case 5: {
+
+                    int targetNumber;
+                    while (true) {
+                        try {
+                            System.out.println("Inserisci il numero di giocatori (numero intero)");
+                            targetNumber = Integer.parseInt(scanner.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Inserimento errato riprova");
+                        }
+                    }
+                    List<GiocoDaTavolo> targetN = ricercaPerNumeroDiGiocatori(targetNumber);
+                    if (targetN.isEmpty()) {
+                        System.out.println("nessun elemento corrisponde alla ricerca");
+                    } else {
+                        System.out.println(targetN);
+                    }
+
                 }
 
                 case 6: {
