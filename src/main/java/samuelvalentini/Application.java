@@ -32,6 +32,10 @@ public class Application {
         System.out.println("verifica lista originale");
         getCollection().forEach(System.out::println);
 
+        System.out.println(ricercaPerNumeroDiGiocatori(4));
+        System.out.println(ricercaPerNumeroDiGiocatori(2));
+        System.out.println(ricercaPerNumeroDiGiocatori(7));
+
 
     }
 }

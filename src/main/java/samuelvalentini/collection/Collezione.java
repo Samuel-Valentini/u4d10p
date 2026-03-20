@@ -1,5 +1,6 @@
 package samuelvalentini.collection;
 
+import samuelvalentini.collection.boardgame.GiocoDaTavolo;
 import samuelvalentini.collection.enumeration.Tipo;
 
 import java.util.ArrayList;
@@ -75,6 +76,12 @@ public abstract class Collezione {
 
     public static List<Collezione> ricercaPerPrezzoInferiore(double prezzo) {
         return collection.stream().filter(game -> game.getPrezzo() < prezzo).toList();
+    }
+
+    //ricerca per numero di giocatori
+
+    public static List<GiocoDaTavolo> ricercaPerNumeroDiGiocatori(int numeroGiocatori) {
+        return collection.stream().filter(game -> game.tipo == Tipo.BOARD_GAME).map(game -> (GiocoDaTavolo) game).filter(game -> game.getNumeroDiGiocatoriMinimo() <= numeroGiocatori && game.getNumeroDiGiocatoriMassimo() >= numeroGiocatori).toList();
     }
 
     public abstract void addToCollection();
