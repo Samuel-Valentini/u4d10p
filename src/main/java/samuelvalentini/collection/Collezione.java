@@ -1,6 +1,6 @@
 package samuelvalentini.collection;
 
-import samuelvalentini.collection.videogame.enumeration.Tipo;
+import samuelvalentini.collection.enumeration.Tipo;
 
 import java.util.ArrayList;
 import java.util.List;

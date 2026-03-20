@@ -1,9 +1,11 @@
 package samuelvalentini.collection.videogame;
 
 import samuelvalentini.collection.Collezione;
+import samuelvalentini.collection.enumeration.Tipo;
 import samuelvalentini.collection.videogame.enumeration.Genere;
 import samuelvalentini.collection.videogame.enumeration.Piattaforma;
-import samuelvalentini.collection.videogame.enumeration.Tipo;
+
+import java.time.LocalDate;
 
 public class Videogioco extends Collezione {
     private final Piattaforma piattaforma;
@@ -36,8 +38,8 @@ public class Videogioco extends Collezione {
     }
 
     private static int yearChecker(int annoPubblicazione) {
-        if (annoPubblicazione < 1950) {
-            throw new IllegalArgumentException("Non esistono videogiochi pubblicati prima del 1950");
+        if (annoPubblicazione < 1950 && annoPubblicazione > LocalDate.now().getYear()) {
+            throw new IllegalArgumentException("Non esistono videogiochi pubblicati prima del 1950 e non puoi possedere giochi non ancora usciti");
         } else {
             return annoPubblicazione;
         }
