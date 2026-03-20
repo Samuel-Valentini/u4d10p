@@ -6,6 +6,7 @@ import samuelvalentini.collection.videogame.enumeration.Genere;
 import samuelvalentini.collection.videogame.enumeration.Piattaforma;
 
 import static samuelvalentini.collection.Collezione.getCollection;
+import static samuelvalentini.collection.Collezione.ricercaPerId;
 
 public class Application {
 
@@ -21,6 +22,11 @@ public class Application {
         Videogioco dukeNukem3D = new Videogioco("Duke Nukem 3D", 1996, 59.9, Piattaforma.PC, 18, Genere.SHOOTER);
         Videogioco dragonAgeOrigins = new Videogioco("Dragon Age: Origins", 2009, 69.9, Piattaforma.PC, 18, Genere.ROLE_PLAYING);
         getCollection().forEach(System.out::println);
+
+
+        System.out.println("test ricerca:");
+        System.out.println(ricercaPerId(2));
+        System.out.println(ricercaPerId(452));
 
 
     }

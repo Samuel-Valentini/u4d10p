@@ -51,6 +51,16 @@ public abstract class Collezione {
         return idGiocoGenerator;
     }
 
+    public static Collezione ricercaPerId(long idGioco) {
+        for (int i = 0; i < collection.size(); i++) {
+            if (collection.get(i).idGioco == idGioco) {
+                return collection.get(i);
+
+            }
+        }
+        return null;
+    }
+
     public abstract void addToCollection();
 
     public long getIdGioco() {
@@ -93,6 +103,16 @@ public abstract class Collezione {
     public Tipo getTipo() {
         return tipo;
     }
+
+    // metodi richiesti
+
+    // l'aggiunta di un elemento è gestita con il costruttore e non possono esserci
+    // id duplicati in quanto l'id è basato su una variabile di classe che viene
+    // incrementata, inoltre in previsione di un futuro in cui vengono importate
+    // liste esterne è stato implementato un controllo ulteriore in sede di costruttore
+    // per verificare l'univocità dell'id.
+
+    // ricerca per ID
 
     @Override
     public String toString() {
