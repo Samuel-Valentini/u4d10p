@@ -41,6 +41,10 @@ public class Application {
 
         getCollection().forEach(System.out::println);
 
+        System.out.println(ricercaPerId(5));
+        aggiornaElementoPerId(5, Genere.ACTION);
+        System.out.println(ricercaPerId(5));
+
 
     }
 }

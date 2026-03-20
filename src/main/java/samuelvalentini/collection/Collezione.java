@@ -2,6 +2,8 @@ package samuelvalentini.collection;
 
 import samuelvalentini.collection.boardgame.GiocoDaTavolo;
 import samuelvalentini.collection.enumeration.Tipo;
+import samuelvalentini.collection.videogame.Videogioco;
+import samuelvalentini.collection.videogame.enumeration.Genere;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +98,95 @@ public abstract class Collezione {
 
     }
 
+    public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione, double prezzo) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setTitolo(titolo);
+        item.setAnnoPubblicazione(annoPubblicazione);
+        item.setPrezzo(prezzo);
+    }
+
+    public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setTitolo(titolo);
+        item.setAnnoPubblicazione(annoPubblicazione);
+
+    }
+
+    public static void aggiornaElementoPerId(long idGioco, String titolo) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setTitolo(titolo);
+
+    }
+
+    public static void aggiornaElementoPerId(long idGioco, String titolo, double prezzo) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setTitolo(titolo);
+        item.setPrezzo(prezzo);
+    }
+
+    public static void aggiornaElementoPerId(long idGioco, int annoPubblicazione) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setAnnoPubblicazione(annoPubblicazione);
+    }
+
+    public static void aggiornaElementoPerId(long idGioco, double prezzo) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setPrezzo(prezzo);
+    }
+
+
+    public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione, double prezzo, int durataMediaPartita) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setTitolo(titolo);
+        item.setAnnoPubblicazione(annoPubblicazione);
+        item.setPrezzo(prezzo);
+
+        if (item instanceof GiocoDaTavolo gioco) {
+            gioco.setDurataMediaPartita(durataMediaPartita);
+        }
+    }
+
+    public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione, double prezzo, double durataDiGioco) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setTitolo(titolo);
+        item.setAnnoPubblicazione(annoPubblicazione);
+        item.setPrezzo(prezzo);
+
+        if (item instanceof Videogioco gioco) {
+            gioco.setDurataDiGioco(durataDiGioco);
+        }
+    }
+
+    public static void aggiornaElementoPerId(long idGioco, String titolo, int annoPubblicazione, double prezzo, double durataDiGioco, Genere genere) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+        item.setTitolo(titolo);
+        item.setAnnoPubblicazione(annoPubblicazione);
+        item.setPrezzo(prezzo);
+
+        if (item instanceof Videogioco gioco) {
+            gioco.setDurataDiGioco(durataDiGioco);
+            gioco.setGenere(genere);
+        }
+    }
+
+    public static void aggiornaElementoPerId(long idGioco, Genere genere) {
+        Collezione item = ricercaPerId(idGioco);
+        assert item != null;
+
+        if (item instanceof Videogioco gioco) {
+            gioco.setGenere(genere);
+        }
+    }
+
     public abstract void addToCollection();
 
     public long getIdGioco() {
@@ -112,7 +203,7 @@ public abstract class Collezione {
         } else {
             this.titolo = titolo;
         }
-        ;
+
     }
 
     public int getAnnoPubblicazione() {

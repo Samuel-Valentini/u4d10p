@@ -13,7 +13,7 @@ public class Videogioco extends Collezione {
     private Genere genere;
 
 
-    public Videogioco(String titolo, int annoPubblicazione, double prezzo, Piattaforma piattaforma, int durataDiGioco, Genere genere) {
+    public Videogioco(String titolo, int annoPubblicazione, double prezzo, Piattaforma piattaforma, double durataDiGioco, Genere genere) {
         super(titolo, yearChecker(annoPubblicazione), prezzo, Tipo.VIDEOGAME);
         if (piattaforma == null) {
             throw new IllegalArgumentException("Devi inserire il sistema di gioco");

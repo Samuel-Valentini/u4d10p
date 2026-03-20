@@ -50,6 +50,7 @@ public class GiocoDaTavolo extends Collezione {
 
     }
 
+
     public int getNumeroDiGiocatoriMinimo() {
         return numeroDiGiocatoriMinimo;
     }
