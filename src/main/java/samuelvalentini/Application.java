@@ -1,5 +1,6 @@
 package samuelvalentini;
 
+import samuelvalentini.collection.Collezione;
 import samuelvalentini.collection.boardgame.GiocoDaTavolo;
 import samuelvalentini.collection.videogame.Videogioco;
 import samuelvalentini.collection.videogame.enumeration.Genere;
@@ -7,8 +8,7 @@ import samuelvalentini.collection.videogame.enumeration.Piattaforma;
 
 import java.util.Scanner;
 
-import static samuelvalentini.collection.Collezione.getCollection;
-import static samuelvalentini.collection.Collezione.stampaStatistiche;
+import static samuelvalentini.collection.Collezione.*;
 
 public class Application {
 
@@ -78,6 +78,182 @@ public class Application {
                     System.out.println();
 
                 }
+
+                case 2: {
+                    int ch;
+                    while (true) {
+                        System.out.println("premi 1 per inserire un videogioco o 2 per inserire un gioco da tavolo");
+                        try {
+                            ch = Integer.parseInt(scanner.nextLine());
+                            if (ch != 1 && ch != 2) {
+                                throw new NumberFormatException();
+                            } else {
+                                break;
+                            }
+
+                        } catch (NumberFormatException e) {
+                            System.out.println("Scelta errata");
+                        }
+                    }
+
+                    switch (ch) {
+                        case 1: {
+                            System.out.println("Inserisci il titolo");
+                            String titolo = scanner.nextLine();
+                            System.out.println("Inserisci l'anno");
+                            int anno = Integer.parseInt(scanner.nextLine());
+                            System.out.println("Inserisci il prezzo in numeri decimali es. 5.99");
+                            double prezzo = Double.parseDouble(scanner.nextLine());
+                            int piattaforma;
+                            Piattaforma piattaformaScelta;
+
+                            while (true) {
+                                System.out.println("Scegli la piattaforma fra: 1. Gameboy, 2.Xbox, 3.Playstation, 4.PC ");
+
+                                try {
+                                    piattaforma = Integer.parseInt(scanner.nextLine());
+                                    if (piattaforma < 1 || piattaforma > 4) {
+                                        throw new NumberFormatException();
+                                    } else {
+                                        break;
+                                    }
+                                } catch (NumberFormatException e) {
+                                    System.out.println("scelta errata");
+                                }
+                            }
+
+                            switch (piattaforma) {
+                                case 1: {
+                                    piattaformaScelta = Piattaforma.GAME_BOY;
+                                    break;
+                                }
+                                case 2: {
+                                    piattaformaScelta = Piattaforma.XBOX;
+                                    break;
+                                }
+                                case 3: {
+                                    piattaformaScelta = Piattaforma.PLAYSTATION;
+                                    break;
+                                }
+                                case 4: {
+                                    piattaformaScelta = Piattaforma.PC;
+                                    break;
+                                }
+                                default: {
+                                    piattaformaScelta = Piattaforma.PC;
+                                }
+
+                            }
+
+                            System.out.println("Inserisci la durata del gioco in ore, si accettano numeri decimali");
+                            double durata = Double.parseDouble(scanner.nextLine());
+
+                            int genere;
+                            Genere genereScelto;
+
+                            while (true) {
+                                System.out.println("Inserisci il genere del gioco: 1. ACTION, 2.ADVENTURE, 3.SHOOTER, 4.ROLE PLAYING");
+
+                                try {
+                                    genere = Integer.parseInt(scanner.nextLine());
+                                    if (genere < 1 || genere > 4) {
+                                        throw new NumberFormatException();
+                                    } else {
+                                        break;
+                                    }
+                                } catch (NumberFormatException e) {
+                                    System.out.println("scelta errata");
+                                }
+                            }
+
+                            switch (genere) {
+                                case 1: {
+                                    genereScelto = Genere.ACTION;
+                                    break;
+                                }
+                                case 2: {
+                                    genereScelto = Genere.ADVENTURE;
+                                    break;
+                                }
+                                case 3: {
+                                    genereScelto = Genere.SHOOTER;
+                                    break;
+                                }
+                                case 4: {
+                                    genereScelto = Genere.ROLE_PLAYING;
+                                    break;
+                                }
+                                default: {
+                                    genereScelto = Genere.MISC;
+                                }
+
+                            }
+
+                            System.out.println("Se hai inserito tutto correttamente il gioco viene creato...");
+                            new Videogioco(titolo, anno, prezzo, piattaformaScelta, durata, genereScelto);
+
+                        }
+
+
+                        case 2: {
+                            System.out.println("Inserisci il titolo");
+                            String titolo = scanner.nextLine();
+                            System.out.println("Inserisci l'anno");
+                            int anno = Integer.parseInt(scanner.nextLine());
+                            System.out.println("Inserisci il prezzo in numeri decimali es. 5.99");
+                            double prezzo = Double.parseDouble(scanner.nextLine());
+                            System.out.println("Inserisci il numero minimo di giocatori");
+                            int numeroMinimo = Integer.parseInt(scanner.nextLine());
+                            System.out.println("Inserisci il numero massimo di giocatori");
+                            int numeroMassimo = Integer.parseInt(scanner.nextLine());
+                            System.out.println("Inserisci la durata media della partita in minuti con un numero intero");
+                            int durata = Integer.parseInt(scanner.nextLine());
+
+
+                            System.out.println("Se hai inserito tutto correttamente il  gioco da tavolo viene creato...");
+                            new GiocoDaTavolo(titolo, anno, prezzo, numeroMinimo, numeroMassimo, durata);
+
+
+                        }
+                    }
+
+                }
+
+                case 3: {
+                    long id;
+                    while (true) {
+                        try {
+                            System.out.println("Inserisci l'id numerico per trovare il gioco");
+                            id = Integer.parseInt(scanner.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Inserimento errato riprova");
+                        }
+                    }
+                    Collezione title = ricercaPerId(id);
+                    if (title == null) {
+                        System.out.println("id non trovato");
+                    } else {
+                        System.out.println(title);
+                    }
+
+                }
+
+                case 4: {
+                }
+
+                case 5: {
+                }
+
+                case 6: {
+                }
+
+                case 7: {
+                }
+
+                case 8: {
+                }
+
             }
         }
 
