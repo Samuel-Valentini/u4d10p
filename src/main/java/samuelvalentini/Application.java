@@ -195,7 +195,9 @@ public class Application {
                                 System.out.println("Se hai inserito tutto correttamente il gioco viene creato...");
                                 new Videogioco(titolo, anno, prezzo, piattaformaScelta, durata, genereScelto);
                             } catch (RuntimeException e) {
-                                System.out.println("Errore nel inserimento, riprova");
+                                System.out.println();
+                                System.out.println("!!! Errore nel inserimento, riprova !!!");
+                                System.out.println();
                                 break;
                             }
                             break;
@@ -223,7 +225,9 @@ public class Application {
 
                                 break;
                             } catch (RuntimeException e) {
-                                System.out.println("Errore nel inserimento, riprova");
+                                System.out.println();
+                                System.out.println("!!! Errore nel inserimento, riprova !!!");
+                                System.out.println();
                                 break;
                             }
 

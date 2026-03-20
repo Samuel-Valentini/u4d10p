@@ -38,7 +38,7 @@ public class Videogioco extends Collezione {
     }
 
     private static int yearChecker(int annoPubblicazione) {
-        if (annoPubblicazione < 1950 && annoPubblicazione > LocalDate.now().getYear()) {
+        if (annoPubblicazione < 1950 || annoPubblicazione > LocalDate.now().getYear()) {
             throw new IllegalArgumentException("Non esistono videogiochi pubblicati prima del 1950 e non puoi possedere giochi non ancora usciti");
         } else {
             return annoPubblicazione;
