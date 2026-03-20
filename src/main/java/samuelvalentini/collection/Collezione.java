@@ -51,7 +51,7 @@ public abstract class Collezione {
         return idGiocoGenerator;
     }
 
-    public abstract void addToCollection(Collezione daAggiungere);
+    public abstract void addToCollection();
 
     public long getIdGioco() {
         return idGioco;
