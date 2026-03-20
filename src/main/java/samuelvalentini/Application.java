@@ -45,6 +45,8 @@ public class Application {
         aggiornaElementoPerId(5, Genere.ACTION);
         System.out.println(ricercaPerId(5));
 
+        stampaStatistiche();
+
 
     }
 }

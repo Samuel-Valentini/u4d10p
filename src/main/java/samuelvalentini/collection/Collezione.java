@@ -5,8 +5,8 @@ import samuelvalentini.collection.enumeration.Tipo;
 import samuelvalentini.collection.videogame.Videogioco;
 import samuelvalentini.collection.videogame.enumeration.Genere;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public abstract class Collezione {
 
@@ -184,6 +184,27 @@ public abstract class Collezione {
 
         if (item instanceof Videogioco gioco) {
             gioco.setGenere(genere);
+        }
+    }
+
+    public static void stampaStatistiche() {
+        if (collection.isEmpty()) {
+            System.out.println("La tua collezione è vuota");
+        } else {
+            System.out.println();
+            System.out.println("|" + "-".repeat(20) + "STATISTICHE DELLA TUA COLLEZIONE" + "-".repeat(20) + "|");
+            Map<Tipo, Integer> quantity = collection.stream().collect(Collectors.groupingBy(Collezione::getTipo, Collectors.summingInt(game -> 1)));
+            System.out.println("Videogame: " + quantity.get(Tipo.VIDEOGAME));
+            System.out.println("Giochi da tavolo: " + quantity.get(Tipo.BOARD_GAME));
+            System.out.println("Valore totale della collezione: " + String.format("%.2f", collection.stream().mapToDouble(Collezione::getPrezzo).sum()) + " €");
+            Collezione mostValue = collection.stream().max(Comparator.comparingDouble(Collezione::getPrezzo)).orElse(null);
+            if (mostValue != null) {
+                System.out.println("Il tuo pezzo di maggior valore è " + mostValue.titolo + " dal prezzo di " + String.format("%.2f", mostValue.getPrezzo()) + " €");
+            }
+            OptionalDouble averagePrice = collection.stream().mapToDouble(game -> game.getPrezzo()).average();
+            if (averagePrice.isPresent()) {
+                System.out.println("La media del valore dei tuoi pezzi è " + String.format("%.2f", averagePrice.getAsDouble()) + " €");
+            }
         }
     }
 
