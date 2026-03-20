@@ -193,6 +193,7 @@ public abstract class Collezione {
         } else {
             System.out.println();
             System.out.println("|" + "-".repeat(20) + "STATISTICHE DELLA TUA COLLEZIONE" + "-".repeat(20) + "|");
+            System.out.println();
             Map<Tipo, Integer> quantity = collection.stream().collect(Collectors.groupingBy(Collezione::getTipo, Collectors.summingInt(game -> 1)));
             System.out.println("Videogame: " + quantity.get(Tipo.VIDEOGAME));
             System.out.println("Giochi da tavolo: " + quantity.get(Tipo.BOARD_GAME));
@@ -205,6 +206,9 @@ public abstract class Collezione {
             if (averagePrice.isPresent()) {
                 System.out.println("La media del valore dei tuoi pezzi è " + String.format("%.2f", averagePrice.getAsDouble()) + " €");
             }
+            System.out.println();
+            System.out.println("|" + "-".repeat(25) + "STATISTICHE TERMINATE" + "-".repeat(26) + "|");
+            System.out.println();
         }
     }
 
